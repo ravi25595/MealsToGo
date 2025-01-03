@@ -2,14 +2,14 @@ import { Card } from "react-native-paper";
 import { StyleSheet, View, Text, Image, Platform } from "react-native";
 import { SvgXml } from "react-native-svg";
 import styled from "styled-components/native";
-
+import { Favourite } from "../../../components/favourite/favourite.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
 
 const RestaurantCard = styled(Card)`
   padding: ${(props) => props.theme.sizes[0]};
-  margin: ${(props) => props.theme.space[1]};
+  margin: ${(props) => props.theme.space[0]};
   //background-color: ${(props) => props.theme.colors.brand.secondary};
 `;
 const Cover = styled(Card.Cover)`
@@ -45,6 +45,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const ratingArray = Array.from(new Array(Math.floor(rating)));
   return (
     <RestaurantCard elevation={5}>
+      <Favourite restaurant={restaurant}/>
       <Cover source={{ uri: photos[0] }} />
       <Info>
         <Title>{restaurant.name}</Title>
